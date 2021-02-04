@@ -4,15 +4,28 @@ const assertEqual = function(actual, expected) {
     console.log(`🟢 Assertion Passed: ${actual} === ${expected}`);
   } else if (actual !== expected) {
     console.log(`🔴 Assertion Failed: ${actual} !== ${expected}`);
-  } return
+  } return;
 };
 
 // countOnly Function
 // allItems: an array of strings that we need to look through
 // itemsToCount: an object specifying what to count
 const countOnly = function(allItems, itemsToCount) {
-
-}
+  // allItems is the entire array/object
+  // itemsToCount is the specific thing(s) countOnly is looking to count
+  let results = {};
+  for (let item of allItems) {
+    console.log(item);
+    if (itemsToCount[item]) {
+      if (results[item]) {
+        results[item] += 1;
+      } else {
+        results[item] = 1;
+      }
+    }
+  }
+  return results;
+};
 
 // test code
 const firstNames = [
