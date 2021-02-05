@@ -1,6 +1,6 @@
 const words = ["ground", "control", "to", "major", "tom"];
 
-const map = function(array, callback) {
+const mapped = function(array, callback) {
   const results = [];
   for (let item of array) {
   results.push(callback(item));
@@ -9,7 +9,7 @@ const map = function(array, callback) {
   return results;
 };
 
-const results1 = map(words, word => word[0]);
+const results1 = mapped(words, word => word[0]);
 console.log(results1);
 
 const assertArraysEqual = function(array1, array2) {
@@ -41,4 +41,4 @@ const eqArrays = function(array1, array2) {
   } return true;
 };
 
-console.log(assertArraysEqual(words, words.map));
+console.log(assertArraysEqual(words, results1));
