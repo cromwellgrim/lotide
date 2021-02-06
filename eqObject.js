@@ -1,5 +1,17 @@
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
+const eqArrays = function(array1, array2) {
+  if (array1.length === array2.length) {
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] !== array2[i]) {
+        return false;
+      }
+    }
+  } else {
+    return false;
+  } return true;
+};
+
 const eqObjects = function(object1, object2) {
   let returnValue = false;
   let key;
@@ -12,7 +24,9 @@ const eqObjects = function(object1, object2) {
       if (key in object2) {
         const secondValue = object2[key];
         // saving the value found at each object2 key
-        if (firstValue === secondValue) {
+        if (Array.isArray(firstValue) && Array.isArray(secondValue)) {
+          returnValue = eqArrays(firstValue, secondValue);
+        } else if (firstValue === secondValue) {
           // comparing those saved values
           returnValue = true;
         } else {
@@ -50,17 +64,17 @@ console.log(eqObjects(cd, cd2)); // => false
 
 
 // eqArrays function
-const eqArrays = function(array1, array2) {
-  if (array1.length === array2.length) {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] !== array2[i]) {
-        return false;
-      }
-    }
-  } else {
-    return false;
-  } return true;
-};
+// const eqArrays = function(array1, array2) {
+//   if (array1.length === array2.length) {
+//     for (let i = 0; i < array1.length; i++) {
+//       if (array1[i] !== array2[i]) {
+//         return false;
+//       }
+//     }
+//   } else {
+//     return false;
+//   } return true;
+// };
 
 
 // assertArraysEqual

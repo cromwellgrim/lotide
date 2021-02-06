@@ -3,16 +3,18 @@ const letterPositions = function (words) {
   //iterating? use a for (i = 0 ) loop 
   for (let i = 0; i < words.length; i++) {
     const letter = words[i];
+    // console.log(letter)
     let letterIndex = words.indexOf(letter);
-    if (results[letterIndex]) {
-      results[letterIndex] += [i];
+    if (results[letter]) {
+      results[letter].push(i);
     } else {
-      results[letterIndex] = [i];
+      results[letter] = [i];
     }
   }
-
+  // console.log(results);
   return results;
 };
+
 
 // assertArraysEqual
 const assertArraysEqual = function(array1, array2) {
@@ -31,5 +33,5 @@ const assertArraysEqual = function(array1, array2) {
   return true;
 };
 
-
-assertArraysEqual(letterPositions("hello").e, [1]);
+console.log(letterPositions("hello"));
+console.log(assertArraysEqual(letterPositions("hello").e, [1]));

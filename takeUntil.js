@@ -1,11 +1,17 @@
 const takeUntil = function(array, callback) {
   // ...
-  let slice = [];
-  for (item of array) {
-    if (callback() === true) {
-      slice.push(item);
-    } 
-  } return slice
+  let taken = [];
+
+  for (let a of array) {
+    if (!callback(a)) {
+      // console.log(a);
+      taken.push(a);
+    } else {
+      break
+    }
+  }
+  // console.log(taken);
+  return taken
 };
 
 const data1 = [1, 2, 5, 7, 2, -1, 2, 4, 5];
