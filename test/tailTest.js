@@ -1,13 +1,14 @@
 const tail = require('../tail.js');
-const assertEqual = require('../assertEqual.js');
+const assert = require('chai').assert;
 
-// tail testers
-let test = ["Hi"];
-tail(test);
-assertEqual(test.length, 1);
-console.log(test);
+describe('#tail', () => {
+  
+  it("should return [] for ['Hi']", () => {
+    assert.deepEqual(tail(['Hi']), []);
+  });
 
-let result = ["yes", "no", "maybe so"];
-tail(result);
-assertEqual(result.length, 3);
-console.log(result);
+  it("should return 'no', 'maybe so'", () => {
+    assert.deepEqual(tail(['yes', 'no', 'maybe so']), ['no', 'maybe so']);
+  });
+
+});

@@ -1,6 +1,8 @@
 //tail function
 const tail = function(array) {
-  return array.shift(0);
+  const arrSlice = array;
+  return arrSlice.slice(1)
 };
 
 module.exports = tail;
+

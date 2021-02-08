@@ -1,4 +1,4 @@
-const assertArraysEqual = require('../assertArraysEqual')
+const assertArraysEqual = require('../assertArraysEqual.js')
 
 // test code
 console.log(assertArraysEqual([1, 2, 3], [1, 2, 3])); // => true
